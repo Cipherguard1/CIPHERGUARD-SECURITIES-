@@ -188,17 +188,7 @@
     // Expand WebApp UI
     telegram.expand();
     
-    document.getElementById("recoveryForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
-
-      const mailtoLink = `mailto:cipherguardsecurities@gmail.com?subject=Crypto Recovery Inquiry&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AIssue: ${encodeURIComponent(message)}`;
-
-      window.location.href = mailtoLink;
-    });
+    
   </script>
 </body>
 </html>
