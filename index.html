@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="telegram-web-app" content="true">
   <title>CIPHERGUARD Securities</title>
   <style>
     body {
@@ -81,7 +80,7 @@
       color: white;
     }
 
-    .subscribe-btn {
+.subscribe-btn {
       background-color: #0088cc;
       color: white;
       padding: 15px 30px;
@@ -96,6 +95,7 @@
     .subscribe-btn:hover {
       background-color: #005577;
     }
+
   </style>
 </head>
 <body>
@@ -145,7 +145,7 @@
     <h2>Frequently Asked Questions</h2>
     <div class="faq">
       <h3>1. How long does the recovery process take?</h3>
-      <p>The duration depends on the complexity of the case. Simple wallet recoveries may take days, while more complex issues, such as scams or exchange recoveries, can take weeks.</p>
+      <p>The duration depends on the complexity of the case. Simple wallet recoveries may take up to 45 minutes, while more complex issues, such as scams or exchange recoveries, can take a day.</p>
       
       <h3>2. Is recovery guaranteed?</h3>
       <p>While we cannot guarantee recovery in every case, our success rate is high, and we do everything possible to maximize results.</p>
@@ -181,51 +181,29 @@
       
       <button type="submit">Submit</button>
     </form>
-  </section>
 
   <footer>
     <p>&copy; 2024 CIPHERGUARD Securities. All Rights Reserved.</p>
   </footer>
 
-  <!-- Telegram Web App and Form Submission -->
-  
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-      <script type="text/javascript">
-        (function() {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init({
-              publicKey: "DgyqwKze6FtB72kcg",
-            });
-        })();
-     
+  <script>
 
     // Telegram Web App Integration
     const telegram = window.Telegram.WebApp;
 
     // Expand WebApp UI
     telegram.expand();
-
-    // Form submission handler
-    document.getElementById("recoveryForm").addEventListener("submit", function(e) {
+    
+    document.getElementById("recoveryForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const message = document.getElementById("message").value;
 
-      const formData = {
-        from_name: name,
-        from_email: email,
-        message: message,
-      };
+      const mailtoLink = `mailto:cipherguardsecurities@gmail.com?subject=Crypto Recovery Inquiry&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AIssue: ${encodeURIComponent(message)}`;
 
-      // Send email via EmailJS
-      emailjs.send("service_dx3i0xl", "template_i54r7x8", formData)
-        .then(function(response) {
-          alert("Message sent successfully!");
-        }, function(error) {
-          alert("Failed to send message. Please try again.");
-        });
+      window.location.href = mailtoLink;
     });
   </script>
 </body>
